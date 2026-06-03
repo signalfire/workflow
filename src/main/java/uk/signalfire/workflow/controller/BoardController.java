@@ -30,19 +30,19 @@ public class BoardController {
         return ResponseEntity.status(HttpStatus.CREATED).body(boardService.createBoard(request));
     }
 
-    @GetMapping("/{id}")
-    public BoardResponse getBoard(@PathVariable Long id) {
-        return boardService.getBoard(id);
+    @GetMapping("/{boardId}")
+    public BoardResponse getBoard(@PathVariable Long boardId) {
+        return boardService.getBoard(boardId);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<BoardResponse> updateBoard(@PathVariable Long id, @Valid @RequestBody CreateBoardRequest request) {
-        return ResponseEntity.status(HttpStatus.OK).body(boardService.updateBoard(id, request));
+    @PutMapping("/{boardId}")
+    public ResponseEntity<BoardResponse> updateBoard(@PathVariable Long boardId, @Valid @RequestBody CreateBoardRequest request) {
+        return ResponseEntity.status(HttpStatus.OK).body(boardService.updateBoard(boardId, request));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteBoard(@PathVariable Long id){
-        boardService.deleteBoard(id);
+    @DeleteMapping("/{boardId}")
+    public ResponseEntity<Void> deleteBoard(@PathVariable Long boardId){
+        boardService.deleteBoard(boardId);
         return ResponseEntity.noContent().build();
     }
 
